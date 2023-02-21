@@ -20,6 +20,10 @@ fn main()
     
     println!("--------------------------------- Separator ---------------------------------");
 
+    // panic!("Error Provocado")
+    open_file_Erros();
+
+
 }
 
 fn exprecion_ex(i:i32)
@@ -90,4 +94,26 @@ fn example_hm()
     
     println!("{:?}",map);
 
+}
+
+
+fn open_file_Erros() {
+
+use std::fs::File;
+use std::io::ErrorKind;
+
+    let f = File::open("hola.txt");
+    let f = match f {
+        Ok(fichero) => fichero,
+        Err(error) => match error.kind()
+        {
+            ErrorKind::NotFound => match File::create("hola.txt"){
+                Ok(fcreated) => fcreated,
+                Err(e) => panic!("Error desconocido al crear el archivo: {:?}", e),
+            },
+            other_error =>{
+                panic!("Error el archivo no existe, Error = {:?}", other_error);
+            }
+        } 
+    };
 }

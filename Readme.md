@@ -20,6 +20,7 @@
  11. [String](./11-Strings.md)
  12. [HashMap](./12-HashMap.md)
  13. [Errores](./13-Errorres.md)
+ 14. [Tipos de datos genericos](./14-tipos_datos_genericos.md)
 
  
 
